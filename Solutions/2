@@ -1,0 +1,40 @@
+import java.util.Scanner;
+ 
+public class p1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
+        String[] s = new String[n];
+        for (int i = 0; i < n; i++) {
+            s[i] = sc.nextLine();
+        }
+        String start = "";
+        String end = "";
+        int count = 0;
+        for (int i = 0; i <= n; i++) {
+            if (i == n) {
+                break;
+            }
+            if (s[i].length() > 10) {
+                for (int j = 0; j < s[i].length(); j++) {
+                    if (j == 0) {
+                        start += s[i].charAt(j);
+                    } else if (j == s[i].length() - 1) {
+                        end += s[i].charAt(j);
+                    } else {
+                        count++;
+                    }
+                }
+            } else {
+                System.out.println(s[i]);
+            }
+            if (count != 0) {
+                System.out.println(start + count + end);
+                start = "";
+                end = "";
+                count = 0;
+            }
+        }
+    }
+}
